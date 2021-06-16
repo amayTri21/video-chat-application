@@ -1,4 +1,4 @@
-import socket,cv2, pickle,struct
+import socket
 import sys
 import threading
 
@@ -12,7 +12,8 @@ def create_socket():
     global host
     global port
     global s
-    host = socket.gethostbyaddr('ec2-65-1-91-15.ap-south-1.compute.amazonaws.com')[0]
+    host_name  = socket.gethostname()
+    host = socket.gethostbyname(host_name)
     port = 9999
     s = socket.socket()
 
@@ -52,10 +53,10 @@ def accepting_connections():
       all_connections.append(conn)
       all_address.append(address)
 
-      data = s.recv(1024,'utf-8')
+      data = str(conn.recv(1024), "utf-8")
       all_usernames.append(data)
 
-      print("Connection has been established : " + address[0] + " " + data[0])
+      print("Connection has been established : " + address[0] + " " + data)
 
     except:
       print("Error accepting connections")

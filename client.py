@@ -3,7 +3,7 @@ from PyQt5.QtCore import *
 from PyQt5.QtGui import *
 from PyQt5.QtWidgets import *
 from PyQt5.uic import loadUi
-import socket,cv2, pickle,struct
+import socket
 import sys
 
 class Application(QMainWindow):
@@ -46,9 +46,7 @@ class Application(QMainWindow):
     port = 9999
 
     s.connect((host, port))
-
-    while True:
-      data = s.send(str.encode(username))
+    data = s.send(str.encode(username))
 
 if __name__ == '__main__':
   app = QApplication(sys.argv)    
