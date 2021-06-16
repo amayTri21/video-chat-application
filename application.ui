@@ -1,0 +1,489 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1200</width>
+    <height>800</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true"/>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QLabel" name="bglbl">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>1200</width>
+      <height>800</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">#bglbl{
+background: qlineargradient( x1:0 y1:0, x2:1 y2:0, stop:0 #006BA6, stop:1 #8f2d56);}</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QFrame" name="loginframe">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>20</y>
+      <width>1160</width>
+      <height>760</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>20</pointsize>
+      <weight>50</weight>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">#loginframe {
+background: rgba( 255, 255, 255, 0.20 );
+border: 1px solid rgba( 255, 255, 255, 0.18 );
+border-radius:10px;
+}</string>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+    <widget class="QPushButton" name="loginbtn">
+     <property name="geometry">
+      <rect>
+       <x>710</x>
+       <y>590</y>
+       <width>171</width>
+       <height>61</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>-1</pointsize>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton{ background: qlineargradient( x1:0 y1:0, x2:1 y2:0, stop:0 #006BA6, stop:1 #8f2d56);
+border: 1px solid gray;
+border-radius: 5px;
+padding: 0 8px;
+selection-background-color: gray;
+color: white;
+font-size: 30px;}
+QPushButton:hover { background: qlineargradient( x1:0 y1:0, x2:1 y2:0, stop:1 #006BA6, stop:0 #8f2d56);}</string>
+     </property>
+     <property name="text">
+      <string>Login</string>
+     </property>
+     <property name="iconSize">
+      <size>
+       <width>30</width>
+       <height>30</height>
+      </size>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="username">
+     <property name="geometry">
+      <rect>
+       <x>270</x>
+       <y>590</y>
+       <width>400</width>
+       <height>60</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>-1</pointsize>
+      </font>
+     </property>
+     <property name="contextMenuPolicy">
+      <enum>Qt::DefaultContextMenu</enum>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QLineEdit{ background-color:rgba(255,255,255,0.6);
+border: 1px solid gray;
+border-radius: 5px;
+padding: 0 8px;
+selection-background-color: gray;
+font-size: 25px;}
+QLineEdit:focus { background-color:rgba(255,255 255,0.8);}</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="frame">
+      <bool>false</bool>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+     <property name="readOnly">
+      <bool>false</bool>
+     </property>
+     <property name="placeholderText">
+      <string>Enter your name</string>
+     </property>
+     <property name="clearButtonEnabled">
+      <bool>false</bool>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QFrame" name="sidemenu">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>20</y>
+      <width>250</width>
+      <height>760</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">#sidemenu{
+background: rgba(255,255,255,0.4);
+border-radius:10px;}</string>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+    <widget class="QLabel" name="label">
+     <property name="geometry">
+      <rect>
+       <x>40</x>
+       <y>20</y>
+       <width>161</width>
+       <height>111</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="pixmap">
+      <pixmap>../OLES-OnlineExamSystem-Docker/img/logo-oles.png</pixmap>
+     </property>
+     <property name="scaledContents">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="QLabel" name="userrollno">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>170</y>
+       <width>200</width>
+       <height>30</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>14</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>User 1</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QLabel" name="username_2">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>200</y>
+       <width>200</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>14</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>User 2</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QWidget" name="verticalLayoutWidget">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>150</y>
+       <width>201</width>
+       <height>421</height>
+      </rect>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout"/>
+    </widget>
+    <widget class="QPushButton" name="chatbtn">
+     <property name="geometry">
+      <rect>
+       <x>40</x>
+       <y>600</y>
+       <width>171</width>
+       <height>61</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>-1</pointsize>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton{ background: qlineargradient( x1:0 y1:0, x2:1 y2:0, stop:0 #006BA6, stop:1 #8f2d56);
+border: 1px solid gray;
+border-radius: 5px;
+padding: 0 8px;
+selection-background-color: gray;
+color: white;
+font-size: 30px;}
+QPushButton:hover { background: qlineargradient( x1:0 y1:0, x2:1 y2:0, stop:1 #006BA6, stop:0 #8f2d56);}</string>
+     </property>
+     <property name="text">
+      <string>Chat</string>
+     </property>
+     <property name="iconSize">
+      <size>
+       <width>30</width>
+       <height>30</height>
+      </size>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="videobtn">
+     <property name="geometry">
+      <rect>
+       <x>40</x>
+       <y>680</y>
+       <width>171</width>
+       <height>61</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>-1</pointsize>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton{ background: qlineargradient( x1:0 y1:0, x2:1 y2:0, stop:0 #006BA6, stop:1 #8f2d56);
+border: 1px solid gray;
+border-radius: 5px;
+padding: 0 8px;
+selection-background-color: gray;
+color: white;
+font-size: 30px;}
+QPushButton:hover { background: qlineargradient( x1:0 y1:0, x2:1 y2:0, stop:1 #006BA6, stop:0 #8f2d56);}</string>
+     </property>
+     <property name="text">
+      <string>Video</string>
+     </property>
+     <property name="iconSize">
+      <size>
+       <width>30</width>
+       <height>30</height>
+      </size>
+     </property>
+    </widget>
+    <zorder>label</zorder>
+    <zorder>verticalLayoutWidget</zorder>
+    <zorder>username_2</zorder>
+    <zorder>userrollno</zorder>
+    <zorder>chatbtn</zorder>
+    <zorder>videobtn</zorder>
+   </widget>
+   <widget class="QFrame" name="videoframe">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>290</x>
+      <y>20</y>
+      <width>890</width>
+      <height>760</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>20</pointsize>
+      <weight>50</weight>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">#videoframe {
+background: rgba( 255, 255, 255, 0.20 );
+border: 1px solid rgba( 255, 255, 255, 0.18 );
+border-radius:10px;
+}</string>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+    <widget class="QWidget" name="gridLayoutWidget">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>20</y>
+       <width>851</width>
+       <height>721</height>
+      </rect>
+     </property>
+     <layout class="QGridLayout" name="videoLayout"/>
+    </widget>
+   </widget>
+   <widget class="QFrame" name="chatframe">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>290</x>
+      <y>20</y>
+      <width>890</width>
+      <height>760</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>20</pointsize>
+      <weight>50</weight>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">#chatframe {
+background: rgba( 255, 255, 255, 0.20 );
+border: 1px solid rgba( 255, 255, 255, 0.18 );
+border-radius:10px;
+}</string>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+    <widget class="QPushButton" name="sendbtn">
+     <property name="geometry">
+      <rect>
+       <x>700</x>
+       <y>680</y>
+       <width>171</width>
+       <height>61</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>-1</pointsize>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton{ background: qlineargradient( x1:0 y1:0, x2:1 y2:0, stop:0 #006BA6, stop:1 #8f2d56);
+border: 1px solid gray;
+border-radius: 5px;
+padding: 0 8px;
+selection-background-color: gray;
+color: white;
+font-size: 30px;}
+QPushButton:hover { background: qlineargradient( x1:0 y1:0, x2:1 y2:0, stop:1 #006BA6, stop:0 #8f2d56);}</string>
+     </property>
+     <property name="text">
+      <string>Send</string>
+     </property>
+     <property name="iconSize">
+      <size>
+       <width>30</width>
+       <height>30</height>
+      </size>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="message">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>680</y>
+       <width>651</width>
+       <height>60</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>-1</pointsize>
+      </font>
+     </property>
+     <property name="contextMenuPolicy">
+      <enum>Qt::DefaultContextMenu</enum>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QLineEdit{ background-color:rgba(255,255,255,0.6);
+border: 1px solid gray;
+border-radius: 5px;
+padding: 0 8px;
+selection-background-color: gray;
+font-size: 25px;}
+QLineEdit:focus { background-color:rgba(255,255 255,0.8);}</string>
+     </property>
+     <property name="frame">
+      <bool>false</bool>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+     <property name="readOnly">
+      <bool>false</bool>
+     </property>
+     <property name="placeholderText">
+      <string>Enter your message</string>
+     </property>
+     <property name="clearButtonEnabled">
+      <bool>false</bool>
+     </property>
+    </widget>
+    <widget class="QWidget" name="verticalLayoutWidget_2">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>20</y>
+       <width>851</width>
+       <height>641</height>
+      </rect>
+     </property>
+     <layout class="QVBoxLayout" name="messagesLayout"/>
+    </widget>
+   </widget>
+   <zorder>bglbl</zorder>
+   <zorder>loginframe</zorder>
+   <zorder>sidemenu</zorder>
+   <zorder>chatframe</zorder>
+   <zorder>videoframe</zorder>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
