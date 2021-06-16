@@ -6,8 +6,6 @@ from PyQt5.uic import loadUi
 import socket,cv2, pickle,struct
 import sys
 
-username = ""
-
 class Application(QMainWindow):
   def __init__(self,master):
     self.master = master
@@ -31,6 +29,7 @@ class Application(QMainWindow):
       self.chatframe.setVisible(True)
       self.sidemenu.setVisible(True)
     else: self.username.text("Please enter your name.")
+    self.client()
 
   def showVideoFrame(self):
     self.chatframe.setVisible(False)
@@ -38,9 +37,18 @@ class Application(QMainWindow):
 
   def showChatFrame(self):
     self.chatframe.setVisible(True)
-    self.videoframe.setVisible(False)
+    self.videoframe.setVisible(False)  
 
-  
+  def client(self):
+    global username
+    s = socket.socket()
+    host = socket.gethostbyaddr('ec2-65-1-91-15.ap-south-1.compute.amazonaws.com')[0]
+    port = 9999
+
+    s.connect((host, port))
+
+    while True:
+      data = s.send(str.encode(username))
 
 if __name__ == '__main__':
   app = QApplication(sys.argv)    
