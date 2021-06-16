@@ -44,6 +44,7 @@ def accepting_connections():
 
   del all_connections[:]
   del all_address[:]
+  del all_usernames[:]
 
   while True:
     try:
@@ -55,8 +56,9 @@ def accepting_connections():
 
       data = str(conn.recv(1024), "utf-8")
       all_usernames.append(data)
-
       print("Connection has been established : " + address[0] + " " + data)
+
+      conn.send(str.encode(tuple(all_usernames)))
 
     except:
       print("Error accepting connections")

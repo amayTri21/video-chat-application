@@ -46,7 +46,10 @@ class Application(QMainWindow):
     port = 9999
 
     s.connect((host, port))
-    data = s.send(str.encode(username))
+    s.send(str.encode(username))
+
+    data = str(s.recv(1024), "utf-8")
+    print("Connected users - ",data)
 
 if __name__ == '__main__':
   app = QApplication(sys.argv)    
