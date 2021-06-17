@@ -1,68 +1,61 @@
 import socket
-import sys
 import threading
+import pickle
 
-all_connections = []
-all_address = []
-all_usernames = []
+PORT = 5050
+SERVER = socket.gethostbyname(socket.gethostname())
+FORMAT = "utf-8"
 
-# Create a Socket (connect two computers)
-def create_socket():
-  try:
-    global host
-    global port
-    global s
-    host_name  = socket.gethostname()
-    host = socket.gethostbyname(host_name)
-    port = 9999
-    s = socket.socket()
+server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+server.bind((SERVER, PORT))
 
-  except socket.error as msg:
-    print("Socket creation error: " + str(msg))
+clients = []
+usernames = []
 
-# Binding the socket and listening for connections
-def bind_socket():
-  try:
-    global host
-    global port
-    global s
-    print("Binding the Port: " + str(port))
 
-    s.bind((host, port))
-    s.listen(5)
+def broadcast(message):
+    for client in clients:
+        client.send(message)
 
-  except socket.error as msg:
-    print("Socket Binding error" + str(msg) + "\n" + "Retrying...")
-    bind_socket()
 
-# Handling connection from multiple clients and saving to a list
-# Closing previous connections when server.py file is restarted
+def handle(client):
+    while True:
+        try:
+            message = client.recv(1024)
+            broadcast(message)
+        except:
+            index = clients.index(client)
+            clients.remove(client)
+            username = usernames[index]
+            broadcast(F'{username} left the chat'.encode(FORMAT))
+            usernames.remove(username)
+            client.close()
+            break
 
-def accepting_connections():
-  for c in all_connections:
-    c.close()
 
-  del all_connections[:]
-  del all_address[:]
-  del all_usernames[:]
+def receive():
+    server.listen()
+    print(f"[LISTENING] Server is listening on {SERVER}")
+    while True:
+        client, address = server.accept()
+        print(f'connected with {str(address)}')
 
-  while True:
-    try:
-      conn, address = s.accept()
-      s.setblocking(1)  # prevents timeout
+        client.send('NICK'.encode(FORMAT))
+        username = client.recv(1024).decode(FORMAT)
+        usernames.append(username)
+        clients.append(client)       
 
-      all_connections.append(conn)
-      all_address.append(address)
+        broadcast('USERS'.encode(FORMAT))
+        connectedUsers = pickle.dumps(usernames)
+        broadcast(connectedUsers)  
 
-      data = str(conn.recv(1024), "utf-8")
-      all_usernames.append(data)
-      print("Connection has been established : " + address[0] + " " + data)
+        print(f'username of client is {username}')
+        # broadcast(f'{username} joined the class'.encode(FORMAT))
+        # client.send(f"connected to the server".encode(FORMAT))      
 
-      conn.send(str.encode(tuple(all_usernames)))
+        thread = threading.Thread(target=handle, args=(client,))
+        thread.start()
 
-    except:
-      print("Error accepting connections")
 
-create_socket()
-bind_socket()
-accepting_connections()
+print("[STARTING] server is starting...")
+receive()

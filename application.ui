@@ -185,11 +185,11 @@ border-radius:10px;}</string>
       <bool>true</bool>
      </property>
     </widget>
-    <widget class="QLabel" name="userrollno">
+    <widget class="QLabel" name="label1">
      <property name="geometry">
       <rect>
        <x>20</x>
-       <y>170</y>
+       <y>150</y>
        <width>200</width>
        <height>30</height>
       </rect>
@@ -200,28 +200,7 @@ border-radius:10px;}</string>
       </font>
      </property>
      <property name="text">
-      <string>User 1</string>
-     </property>
-     <property name="alignment">
-      <set>Qt::AlignCenter</set>
-     </property>
-    </widget>
-    <widget class="QLabel" name="username_2">
-     <property name="geometry">
-      <rect>
-       <x>20</x>
-       <y>200</y>
-       <width>200</width>
-       <height>41</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <pointsize>14</pointsize>
-      </font>
-     </property>
-     <property name="text">
-      <string>User 2</string>
+      <string>Online Users</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignCenter</set>
@@ -231,12 +210,12 @@ border-radius:10px;}</string>
      <property name="geometry">
       <rect>
        <x>20</x>
-       <y>150</y>
+       <y>190</y>
        <width>201</width>
-       <height>421</height>
+       <height>381</height>
       </rect>
      </property>
-     <layout class="QVBoxLayout" name="verticalLayout"/>
+     <layout class="QVBoxLayout" name="usersLayout"/>
     </widget>
     <widget class="QPushButton" name="chatbtn">
      <property name="geometry">
@@ -308,8 +287,7 @@ QPushButton:hover { background: qlineargradient( x1:0 y1:0, x2:1 y2:0, stop:1 #0
     </widget>
     <zorder>label</zorder>
     <zorder>verticalLayoutWidget</zorder>
-    <zorder>username_2</zorder>
-    <zorder>userrollno</zorder>
+    <zorder>label1</zorder>
     <zorder>chatbtn</zorder>
     <zorder>videobtn</zorder>
    </widget>
@@ -423,7 +401,7 @@ QPushButton:hover { background: qlineargradient( x1:0 y1:0, x2:1 y2:0, stop:1 #0
       </size>
      </property>
     </widget>
-    <widget class="QLineEdit" name="message">
+    <widget class="QLineEdit" name="messagetxt">
      <property name="geometry">
       <rect>
        <x>20</x>
@@ -474,14 +452,13 @@ QLineEdit:focus { background-color:rgba(255,255 255,0.8);}</string>
        <height>641</height>
       </rect>
      </property>
-     <layout class="QVBoxLayout" name="messagesLayout"/>
+     <layout class="QVBoxLayout" name="messagesLayout">
+      <property name="sizeConstraint">
+       <enum>QLayout::SetDefaultConstraint</enum>
+      </property>
+     </layout>
     </widget>
    </widget>
-   <zorder>bglbl</zorder>
-   <zorder>loginframe</zorder>
-   <zorder>sidemenu</zorder>
-   <zorder>chatframe</zorder>
-   <zorder>videoframe</zorder>
   </widget>
  </widget>
  <resources/>
